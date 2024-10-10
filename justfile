@@ -1,4 +1,5 @@
 alias clean := django-clean
+alias s := django-serve
 
 default:
     @echo 'Just Django!'
@@ -36,3 +37,7 @@ django-migrate:
 [group('django')]
 django-project:
 	django-admin startproject backend . --template "{{template}}"
+
+[group('django')]
+django-serve:
+	python manage.py runserver
