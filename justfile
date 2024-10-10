@@ -1,10 +1,17 @@
+alias clean := django-clean
+
 default:
     @echo 'Just Django!'
     @git commit -a -m "Add/update just-django files."; git push
 	
 django: django-install django-project
 
-template := "https://github.com/aclark4life/django-mongodb-project/archive/main.zip"
+template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
+
+[group('django')]
+django-clean:
+	rm -rvf .babelrc .eslintrc .stylelintrc.json backend frontend manage.py mongo_migrations package.json \
+		postcss.config.js
 
 [group('django')]
 django-install:
