@@ -1,6 +1,6 @@
 default:
     @echo 'Just Django!'
-    @git commit -a -m "Just Django!"; git push
+    @git commit -a -m "Add/update just-django files."; git push
 	
 django: django-install django-project
 
