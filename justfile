@@ -1,4 +1,5 @@
 alias clean := django-clean
+alias freeze := pip-freeze
 alias s := django-serve
 
 default:
@@ -41,3 +42,7 @@ django-project:
 [group('django')]
 django-serve:
 	python manage.py runserver
+
+[group('pip')]
+pip-freeze:
+	pip freeze > requirements.txt
