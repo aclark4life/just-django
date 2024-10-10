@@ -28,8 +28,7 @@ django-install:
     django-extensions \
     django-hijack \
     django-recaptcha \
-    djangorestframework \
-    python-webpack-boilerplate
+    djangorestframework
 
 [group('django')]
 django-migrate:
