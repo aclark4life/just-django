@@ -57,3 +57,7 @@ django-serve:
 [group('pip')]
 pip-freeze:
 	pip freeze > requirements.txt
+
+[group('test')]
+test:
+	python test.py
