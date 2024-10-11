@@ -1,4 +1,5 @@
 alias clean := django-clean
+alias last := git-commit-last
 alias migrate := django-migrate
 alias sqlmigrate := django-sqlmigrate
 alias freeze := pip-freeze
@@ -56,7 +57,7 @@ django-serve:
 
 [group('git')]
 git-commit-last:
-	git log -1 --pretty=%B
+	git log -1 --pretty=%B | git -a -F -
 
 [group('pip')]
 pip-freeze:
