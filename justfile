@@ -16,12 +16,12 @@ template := "https://github.com/aclark4life/just-django-project/archive/refs/hea
 
 [group('django')]
 django-clean:
-	rm -rvf .babelrc .eslintrc .stylelintrc.json backend frontend manage.py mongo_migrations \
-		node_modules \
-		package.json \
-		package-lock.json \
-		postcss.config.js \
-		requirements.txt
+    rm -rvf .babelrc .eslintrc .stylelintrc.json backend frontend manage.py mongo_migrations \
+    node_modules \
+    package.json \
+    package-lock.json \
+    postcss.config.js \
+    requirements.txt
 
 [group('django')]
 django-install:
@@ -53,6 +53,10 @@ django-project:
 [group('django')]
 django-serve:
 	python manage.py runserver
+
+[group('git')]
+git-commit-last:
+	git log -1 --pretty=%B
 
 [group('pip')]
 pip-freeze:
