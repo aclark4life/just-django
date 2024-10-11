@@ -1,5 +1,6 @@
 alias clean := django-clean
 alias freeze := pip-freeze
+alias c := django-clean
 alias s := django-serve
 
 default:
@@ -13,7 +14,9 @@ template := "https://github.com/aclark4life/just-django-project/archive/refs/hea
 [group('django')]
 django-clean:
 	rm -rvf .babelrc .eslintrc .stylelintrc.json backend frontend manage.py mongo_migrations \
+		node_modules \
 		package.json \
+		package-lock.json \
 		postcss.config.js \
 		requirements.txt
 
