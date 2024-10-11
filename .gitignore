@@ -1,0 +1,9 @@
+.babelrc
+.eslintrc
+.stylelintrc.json
+backend/
+frontend/
+manage.py
+mongo_migrations/
+package.json
+postcss.config.js
