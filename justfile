@@ -1,6 +1,9 @@
 alias clean := django-clean
+alias migrate := django-migrate
+alias sqlmigrate := django-sqlmigrate
 alias freeze := pip-freeze
 alias c := django-clean
+alias d := django
 alias s := django-serve
 
 default:
@@ -38,6 +41,10 @@ django-install:
 [group('django')]
 django-migrate:
 	python manage.py migrate
+
+[group('django')]
+django-sqlmigrate app_label migration_name:
+	python manage.py sqlmigrate {{app_label}} {{migration_name}}
 
 [group('django')]
 django-project:
