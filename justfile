@@ -27,7 +27,7 @@ django-clean:
 django-install:
     pip install \
     -e git+https://github.com/aclark4life/django-mongodb#egg=django-mongodb \
-    -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
+    -e git+https://github.com/aclark4life/mongo-python-driver@PYTHON-4834#egg=pymongo \
     -e git+https://github.com/mongodb-forks/django@mongodb-5.0.x#egg=django \
     crispy-bootstrap5 \
     dj-database-url \
