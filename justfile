@@ -8,6 +8,7 @@ alias django := django-init
 alias freeze := pip-freeze
 alias last := git-commit-last
 alias migrate := django-migrate
+alias migrations := django-migrations
 alias s := django-serve
 alias startapp := django-startapp
 alias sqlmigrate := django-sqlmigrate
@@ -46,8 +47,16 @@ django-install:
     djangorestframework
 
 [group('django')]
+django-migrations:
+	python manage.py makemigrations
+
+[group('django')]
 django-migrate:
 	python manage.py migrate
+
+[group('django')]
+django-serve:
+	python manage.py runserver
 
 [group('django')]
 django-startapp app_label: 
@@ -60,10 +69,6 @@ django-sqlmigrate app_label migration_name:
 [group('django')]
 django-project:
 	django-admin startproject backend . --template "{{project_template}}"
-
-[group('django')]
-django-serve:
-	python manage.py runserver
 
 [group('django')]
 polls-app:
