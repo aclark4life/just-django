@@ -1,18 +1,20 @@
-alias clean := django-clean
-alias last := git-commit-last
-alias migrate := django-migrate
-alias sqlmigrate := django-sqlmigrate
-alias freeze := pip-freeze
+default: git-commit-push
+
 alias c := django-clean
 alias ce := git-commit-edit-push
-alias d := django
+alias clean := django-clean
+alias d := django-init
+alias django := django-init
+alias freeze := pip-freeze
+alias last := git-commit-last
+alias migrate := django-migrate
 alias s := django-serve
+alias sqlmigrate := django-sqlmigrate
 
-default: git-commit-push
-	
-django: django-install django-project
+project_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
-template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
+[group('django')]
+django-init: django-install django-project
 
 [group('django')]
 django-clean:
@@ -48,7 +50,7 @@ django-sqlmigrate app_label migration_name:
 
 [group('django')]
 django-project:
-	django-admin startproject backend . --template "{{template}}"
+	django-admin startproject backend . --template "{{project_template}}"
 
 [group('django')]
 django-serve:
