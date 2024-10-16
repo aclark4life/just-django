@@ -13,6 +13,8 @@ alias sqlmigrate := django-sqlmigrate
 
 project_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
+# django
+
 [group('django')]
 django-init: django-install django-project
 
@@ -56,6 +58,8 @@ django-project:
 django-serve:
 	python manage.py runserver
 
+# git
+
 [group('git')]
 git-commit-last:
 	git log -1 --pretty=%B | git -a -F -
@@ -68,10 +72,8 @@ git-commit-push:
 git-commit-edit-push:
     git commit -a; git push
 
+# pip
+
 [group('pip')]
 pip-freeze:
 	pip freeze > requirements.txt
-
-[group('test')]
-test:
-	python test.py
