@@ -19,11 +19,19 @@ app_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/
 # django
 
 [group('django')]
-django-init: django-install django-project polls-app
+django-init: django-install django-project
 
 [group('django')]
 django-clean:
-    rm -rvf .babelrc .eslintrc .stylelintrc.json .venv/src backend frontend manage.py mongo_migrations \
+    rm -rvf \
+    .babelrc \
+    .eslintrc \
+    .stylelintrc.json \
+    .venv/src \
+    backend \
+    frontend \
+    manage.py \
+    mongo_migrations \
     node_modules \
     package.json \
     package-lock.json \
@@ -69,10 +77,6 @@ django-sqlmigrate app_label migration_name:
 [group('django')]
 django-project:
 	django-admin startproject backend . --template "{{project_template}}"
-
-[group('django')]
-polls-app:
-	just startapp polls
 
 # git
 
