@@ -7,3 +7,4 @@ manage.py
 mongo_migrations/
 package.json
 postcss.config.js
+polls/

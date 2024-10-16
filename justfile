@@ -9,14 +9,16 @@ alias freeze := pip-freeze
 alias last := git-commit-last
 alias migrate := django-migrate
 alias s := django-serve
+alias startapp := django-startapp
 alias sqlmigrate := django-sqlmigrate
 
 project_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
+app_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
 
 # django
 
 [group('django')]
-django-init: django-install django-project
+django-init: django-install django-project polls-app
 
 [group('django')]
 django-clean:
@@ -24,6 +26,7 @@ django-clean:
     node_modules \
     package.json \
     package-lock.json \
+    polls \
     postcss.config.js \
     requirements.txt
 
@@ -47,6 +50,10 @@ django-migrate:
 	python manage.py migrate
 
 [group('django')]
+django-startapp app_label: 
+	python manage.py startapp {{app_label}} --template "{{app_template}}"
+
+[group('django')]
 django-sqlmigrate app_label migration_name:
 	python manage.py sqlmigrate {{app_label}} {{migration_name}}
 
@@ -57,6 +64,10 @@ django-project:
 [group('django')]
 django-serve:
 	python manage.py runserver
+
+[group('django')]
+polls-app:
+	just startapp polls
 
 # git
 
