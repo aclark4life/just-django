@@ -16,7 +16,7 @@ template := "https://github.com/aclark4life/just-django-project/archive/refs/hea
 
 [group('django')]
 django-clean:
-    rm -rvf .babelrc .eslintrc .stylelintrc.json backend frontend manage.py mongo_migrations \
+    rm -rvf .babelrc .eslintrc .stylelintrc.json .venv/src backend frontend manage.py mongo_migrations \
     node_modules \
     package.json \
     package-lock.json \
