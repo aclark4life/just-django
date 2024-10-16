@@ -4,12 +4,11 @@ alias migrate := django-migrate
 alias sqlmigrate := django-sqlmigrate
 alias freeze := pip-freeze
 alias c := django-clean
+alias ce := git-commit-edit-push
 alias d := django
 alias s := django-serve
 
-default:
-    @echo 'Just Django!'
-    @git commit -a -m "Add/update just-django files."; git push
+default: git-commit-push
 	
 django: django-install django-project
 
@@ -28,7 +27,7 @@ django-clean:
 django-install:
     pip install \
     -e git+https://github.com/aclark4life/django-mongodb#egg=django-mongodb \
-    -e git+https://github.com/aclark4life/mongo-python-driver@PYTHON-4834#egg=pymongo \
+    -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
     -e git+https://github.com/mongodb-forks/django@mongodb-5.0.x#egg=django \
     crispy-bootstrap5 \
     dj-database-url \
@@ -58,6 +57,14 @@ django-serve:
 [group('git')]
 git-commit-last:
 	git log -1 --pretty=%B | git -a -F -
+
+[group('git')]
+git-commit-push:
+    git commit -a -m "Add/update just-django files."; git push
+
+[group('git')]
+git-commit-edit-push:
+    git commit -a; git push
 
 [group('pip')]
 pip-freeze:
