@@ -10,8 +10,9 @@ alias last := git-commit-last
 alias migrate := django-migrate
 alias migrations := django-migrations
 alias s := django-serve
-alias startapp := django-startapp
+alias shell := django-shell
 alias sqlmigrate := django-sqlmigrate
+alias startapp := django-startapp
 
 project_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 app_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
@@ -42,7 +43,7 @@ django-clean:
 [group('django')]
 django-install:
     pip install \
-    -e git+https://github.com/aclark4life/django-mongodb#egg=django-mongodb \
+    -e git+https://github.com/aclark4life/django-mongodb@PYTHON-4856#egg=django-mongodb \
     -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
     -e git+https://github.com/mongodb-forks/django@mongodb-5.0.x#egg=django \
     crispy-bootstrap5 \
@@ -65,6 +66,10 @@ django-migrate:
 [group('django')]
 django-serve:
 	python manage.py runserver
+
+[group('django')]
+django-shell:
+	python manage.py shell
 
 [group('django')]
 django-startapp app_label: 
