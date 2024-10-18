@@ -22,6 +22,7 @@ startproject_template := "https://github.com/aclark4life/just-django-project/arc
 [group('django')]
 django-init: django-install django-project npm-install npm-build
 
+# remove files and directories created by django-init
 [group('django')]
 django-clean:
     rm -rvf \
@@ -40,6 +41,7 @@ django-clean:
     postcss.config.js \
     requirements.txt
 
+# install Django with MongoDB
 [group('django')]
 django-install:
     pip install \
