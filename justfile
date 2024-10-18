@@ -1,11 +1,9 @@
-# just-django
-
 # list all available recipes
-default:
-	@just -l
+default: list
 
 alias c := django-clean
 alias d := django-init
+alias e := edit
 alias s := django-serve
 alias ce := git-commit-edit-push
 alias clean := django-clean
@@ -21,10 +19,8 @@ alias startapp := django-startapp
 startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
 startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
-# django
-
 [group('django')]
-django-init: django-install django-project
+django-init: django-install django-project npm-install npm-build
 
 [group('django')]
 django-clean:
@@ -69,8 +65,6 @@ django-migrate:
 
 [group('django')]
 django-serve:
-	npm install
-	npm run build
 	npm run watch &
 	python manage.py runserver
 
@@ -90,8 +84,6 @@ django-sqlmigrate app_label migration_name:
 django-project:
     django-admin startproject backend . --template "{{startproject_template}}"
 
-# git
-
 [group('git')]
 git-commit-last:
 	git log -1 --pretty=%B | git -a -F -
@@ -106,7 +98,23 @@ git-commit-edit-push:
     git commit -a
     git push
 
-# pip
+# list all available recipes
+[group('just')]
+list:
+	@just -l
+
+# edit the justfile
+[group('just')]
+edit:
+	@just -e
+
+[group('npm')]
+npm-build:
+	npm run build
+
+[group('npm')]
+npm-install:
+	npm install
 
 [group('pip')]
 pip-freeze:
