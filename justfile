@@ -4,6 +4,7 @@ default: list
 alias c := django-clean
 alias d := django-init
 alias e := edit
+alias m := django-migrate
 alias s := django-serve
 alias ce := git-commit-edit-push
 alias clean := django-clean
