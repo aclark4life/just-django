@@ -22,7 +22,7 @@ startproject_template := "https://github.com/aclark4life/just-django-project/arc
 
 # initialize a new django project with mongodb and react
 [group('django')]
-django-init: check-venv django-project npm-install npm-build
+django-init: check-venv django-install django-project npm-install npm-build
 
 # remove files and directories created by django-init
 [group('django')]
