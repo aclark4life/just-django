@@ -1,4 +1,8 @@
-default: git-commit-push
+# just-django
+
+# list all available recipes
+default:
+	@just -l
 
 alias c := django-clean
 alias d := django-init
