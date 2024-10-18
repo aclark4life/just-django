@@ -8,6 +8,7 @@ alias l := list
 alias m := django-migrate
 alias o := open
 alias s := django-serve
+alias su := django-su
 alias ce := git-commit-edit-push
 alias cp := git-commit-push
 alias clean := django-clean
@@ -23,11 +24,11 @@ alias startapp := django-startapp
 startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
 startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
-# initialize a new django project with mongodb and react
+# django-init
 [group('django')]
 django-init: check-venv django-install django-project npm-install npm-build
 
-# remove files and directories created by django-init
+# django-clean
 [group('django')]
 django-clean:
     rm -rvf \
@@ -46,7 +47,7 @@ django-clean:
     postcss.config.js \
     requirements.txt
 
-# install django with mongodb
+# django-install
 [group('django')]
 django-install:
     pip install \
@@ -62,31 +63,43 @@ django-install:
     django-recaptcha \
     djangorestframework
 
+# django-su
+[group('django')]
+django-su:
+	DJANGO_SUPERUSER_PASSWORD=admin python manage.py createsuperuser --noinput --username=admin --email=`git config user.mail`
+
+# django-migrations
 [group('django')]
 django-migrations:
 	python manage.py makemigrations
 
+# django-migrate
 [group('django')]
 django-migrate:
 	python manage.py migrate
 
+# django-serve
 [group('django')]
 django-serve:
 	npm run watch &
 	python manage.py runserver
 
+# django-shell
 [group('django')]
 django-shell:
 	python manage.py shell
 
+# django-startapp
 [group('django')]
 django-startapp app_label: 
 	python manage.py startapp {{app_label}} --template "{{startapp_template}}"
 
+# django-sqlmigrate
 [group('django')]
 django-sqlmigrate app_label migration_name:
 	python manage.py sqlmigrate {{app_label}} {{migration_name}}
 
+# django-project
 [group('django')]
 django-project:
     django-admin startproject backend . --template "{{startproject_template}}"
