@@ -65,6 +65,8 @@ django-migrate:
 
 [group('django')]
 django-serve:
+	npm install
+	npm run build
 	npm run watch &
 	python manage.py runserver
 
