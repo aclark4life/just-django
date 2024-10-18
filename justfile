@@ -19,6 +19,7 @@ alias startapp := django-startapp
 startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
 startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
+# initialize a new django project with mongodb and react
 [group('django')]
 django-init: django-install django-project npm-install npm-build
 
@@ -41,7 +42,7 @@ django-clean:
     postcss.config.js \
     requirements.txt
 
-# install Django with MongoDB
+# install django with mongodb
 [group('django')]
 django-install:
     pip install \
@@ -88,7 +89,7 @@ django-project:
 
 [group('git')]
 git-commit-last:
-	git log -1 --pretty=%B | git -a -F -
+	git log -1 --pretty=%B | git commit -a -F -
 
 [group('git')]
 git-commit-push:
