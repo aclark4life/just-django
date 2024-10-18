@@ -4,9 +4,12 @@ default: list
 alias c := django-clean
 alias d := django-init
 alias e := edit
+alias l := list
 alias m := django-migrate
+alias o := open
 alias s := django-serve
 alias ce := git-commit-edit-push
+alias cp := git-commit-push
 alias clean := django-clean
 alias django := django-init
 alias freeze := pip-freeze
@@ -95,7 +98,7 @@ git-commit-last:
 
 [group('git')]
 git-commit-push:
-    git commit -a -m "Add/update just-django files."
+    git commit -a -m "Add/update just-django recipes."
     git push
 
 [group('git')]
@@ -112,6 +115,11 @@ list:
 [group('just')]
 edit:
 	@just -e
+
+# open django
+[group('misc')]
+open:
+	open http://0.0.0.0:8000
 
 [group('npm')]
 npm-build:
