@@ -8,3 +8,5 @@ mongo_migrations/
 package.json
 postcss.config.js
 polls/
+node_modules/
+package-lock.json
