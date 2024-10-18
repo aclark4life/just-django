@@ -1,21 +1,21 @@
 default: git-commit-push
 
 alias c := django-clean
+alias d := django-init
+alias s := django-serve
 alias ce := git-commit-edit-push
 alias clean := django-clean
-alias d := django-init
 alias django := django-init
 alias freeze := pip-freeze
 alias last := git-commit-last
 alias migrate := django-migrate
 alias migrations := django-migrations
-alias s := django-serve
 alias shell := django-shell
 alias sqlmigrate := django-sqlmigrate
 alias startapp := django-startapp
 
-project_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
-app_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
+startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
+startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
 # django
 
@@ -65,6 +65,7 @@ django-migrate:
 
 [group('django')]
 django-serve:
+	npm run watch &
 	python manage.py runserver
 
 [group('django')]
@@ -73,7 +74,7 @@ django-shell:
 
 [group('django')]
 django-startapp app_label: 
-	python manage.py startapp {{app_label}} --template "{{app_template}}"
+	python manage.py startapp {{app_label}} --template "{{startapp_template}}"
 
 [group('django')]
 django-sqlmigrate app_label migration_name:
@@ -81,7 +82,7 @@ django-sqlmigrate app_label migration_name:
 
 [group('django')]
 django-project:
-	django-admin startproject backend . --template "{{project_template}}"
+    django-admin startproject backend . --template "{{startproject_template}}"
 
 # git
 
@@ -91,11 +92,13 @@ git-commit-last:
 
 [group('git')]
 git-commit-push:
-    git commit -a -m "Add/update just-django files."; git push
+    git commit -a -m "Add/update just-django files."
+    git push
 
 [group('git')]
 git-commit-edit-push:
-    git commit -a; git push
+    git commit -a
+    git push
 
 # pip
 
