@@ -10,3 +10,5 @@ postcss.config.js
 polls/
 node_modules/
 package-lock.json
+server.log
+server.pid
