@@ -90,6 +90,7 @@ django-project:
 [group('git')]
 git-commit-last:
 	git log -1 --pretty=%B | git commit -a -F -
+	git push
 
 [group('git')]
 git-commit-push:
