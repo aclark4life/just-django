@@ -66,48 +66,48 @@ django-install:
 # django-su
 [group('django')]
 django-su:
-	DJANGO_SUPERUSER_PASSWORD=admin python manage.py createsuperuser --noinput --username=admin --email=`git config user.mail`
+    DJANGO_SUPERUSER_PASSWORD=admin python manage.py createsuperuser --noinput --username=admin --email=`git config user.mail`
 
 # django-migrations
 [group('django')]
 django-migrations:
-	python manage.py makemigrations
+    python manage.py makemigrations
 
 # django-migrate
 [group('django')]
 django-migrate:
-	python manage.py migrate
+    python manage.py migrate
 
 # django-serve
 [group('django')]
 django-serve:
-	npm run watch &
-	python manage.py runserver
+    npm run watch &
+    python manage.py runserver
 
 # django-shell
 [group('django')]
 django-shell:
-	python manage.py shell
+    python manage.py shell
 
 # django-startapp
 [group('django')]
-django-startapp app_label: 
-	python manage.py startapp {{app_label}} --template "{{startapp_template}}"
+django-startapp app_label:
+    python manage.py startapp {{ app_label }} --template "{{ startapp_template }}"
 
 # django-sqlmigrate
 [group('django')]
 django-sqlmigrate app_label migration_name:
-	python manage.py sqlmigrate {{app_label}} {{migration_name}}
+    python manage.py sqlmigrate {{ app_label }} {{ migration_name }}
 
 # django-project
 [group('django')]
 django-project:
-    django-admin startproject backend . --template "{{startproject_template}}"
+    django-admin startproject backend . --template "{{ startproject_template }}"
 
 [group('git')]
 git-commit-last:
-	git log -1 --pretty=%B | git commit -a -F -
-	git push
+    git log -1 --pretty=%B | git commit -a -F -
+    git push
 
 [group('git')]
 git-commit-push:
@@ -122,33 +122,33 @@ git-commit-edit-push:
 # list all available recipes
 [group('just')]
 list:
-	@just -l
+    @just -l
 
 # edit the justfile
 [group('just')]
 edit:
-	@just -e
+    @just -e
 
 # open django
 [group('misc')]
 open:
-	open http://0.0.0.0:8000
+    open http://0.0.0.0:8000
 
 [group('npm')]
 npm-build:
-	npm run build
+    npm run build
 
 [group('npm')]
 npm-install:
-	npm install
+    npm install
 
 [group('pip')]
 pip-freeze:
-	pip freeze > requirements.txt
+    pip freeze > requirements.txt
 
 [group('python')]
 check-venv:
-	@if [ -z "${VIRTUAL_ENV:-}" ]; then \
-		echo "Please activate virtual environment"; \
-		exit 1; \
-	fi
+    @if [ -z "${VIRTUAL_ENV:-}" ]; then \
+    	echo "Please activate virtual environment"; \
+    	exit 1; \
+    fi
