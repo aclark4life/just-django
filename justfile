@@ -12,6 +12,7 @@ alias su := django-su
 alias ce := git-commit-edit-push
 alias cp := git-commit-push
 alias clean := django-clean
+alias dump := django-dumpdata
 alias dbshell := django-dbshell
 alias django := django-init
 alias freeze := pip-freeze
@@ -48,6 +49,11 @@ django-clean:
     polls \
     postcss.config.js \
     requirements.txt
+
+# django-dumpdata
+[group('django')]
+django-dumpdata:
+	python manage.py dumpdata
 
 # django-init
 [group('django')]
