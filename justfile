@@ -29,10 +29,10 @@ startproject_template := "https://github.com/aclark4life/just-django-project/arc
 
 # ---------------------------------------- asv ---------------------------------------- 
 
-# asv-run
+# asv-clean
 [group('asv')]
-asv-run:
-    pushd .venv/src/django-asv && asv run && popd
+asv-clean:
+    pushd .venv/src/django-asv && rm -rvf ./results && popd
 
 # asv-preview
 [group('asv')]
@@ -43,6 +43,11 @@ asv-preview:
 [group('asv')]
 asv-publish:
     pushd .venv/src/django-asv && asv publish && popd
+
+# asv-run
+[group('asv')]
+asv-run:
+    pushd .venv/src/django-asv && asv run && popd
 
 # ---------------------------------------- django ---------------------------------------- 
 
