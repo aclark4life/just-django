@@ -27,10 +27,14 @@ alias startapp := django-startapp
 startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
 startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
+# ---------------------------------------- asv ---------------------------------------- 
+
 # asv-run
 [group('asv')]
 asv-run:
     pushd .venv/src/django-asv && asv run && popd
+
+# ---------------------------------------- django ---------------------------------------- 
 
 # django-dbshell
 [group('django')]
@@ -144,6 +148,8 @@ git-commit-edit-push:
     git commit -a
     git push
 
+# ---------------------------------------- just ---------------------------------------- 
+
 # list all available recipes
 [group('just')]
 just-list:
@@ -153,6 +159,8 @@ just-list:
 [group('just')]
 just-edit:
     @just -e
+
+# ---------------------------------------- npm ---------------------------------------- 
 
 [group('npm')]
 npm-build:
@@ -165,7 +173,9 @@ npm-init: npm-install npm-build
 npm-install:
     npm install
 
-[group('pip')]
+# ---------------------------------------- python ---------------------------------------- 
+
+[group('python')]
 pip-freeze:
     pip freeze > requirements.txt
 
