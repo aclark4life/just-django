@@ -6,6 +6,7 @@ alias d := django-init
 alias e := edit
 alias l := list
 alias m := django-migrate
+alias n := npm-init
 alias o := open
 alias s := django-serve
 alias su := django-su
@@ -57,7 +58,7 @@ django-dumpdata:
 
 # django-init
 [group('django')]
-django-init: check-venv django-install django-project npm-install npm-build
+django-init: check-venv django-install django-project
 
 # django-install
 [group('django')]
@@ -150,6 +151,9 @@ open:
 [group('npm')]
 npm-build:
     npm run build
+
+[group('npm')]
+npm-init: npm-install npm-build
 
 [group('npm')]
 npm-install:
