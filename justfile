@@ -63,7 +63,7 @@ django-init: check-venv django-install django-project npm-install npm-build
 [group('django')]
 django-install:
     pip install \
-    -e git+https://github.com/aclark4life/django-asv#egg=django-asv \
+    -e git+https://github.com/aclark4life/django-asv#egg=myproject \
     -e git+https://github.com/aclark4life/django-mongodb@PYTHON-4856#egg=django-mongodb \
     -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
     -e git+https://github.com/mongodb-forks/django@mongodb-5.0.x#egg=django \
