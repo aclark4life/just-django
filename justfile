@@ -12,6 +12,7 @@ alias su := django-su
 alias ce := git-commit-edit-push
 alias cp := git-commit-push
 alias clean := django-clean
+alias dbshell := django-dbshell
 alias django := django-init
 alias freeze := pip-freeze
 alias last := git-commit-last
@@ -24,9 +25,10 @@ alias startapp := django-startapp
 startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
 startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
-# django-init
+# django-dbshell
 [group('django')]
-django-init: check-venv django-install django-project npm-install npm-build
+django-dbshell:
+    python manage.py dbshell
 
 # django-clean
 [group('django')]
@@ -46,6 +48,10 @@ django-clean:
     polls \
     postcss.config.js \
     requirements.txt
+
+# django-init
+[group('django')]
+django-init: check-venv django-install django-project npm-install npm-build
 
 # django-install
 [group('django')]
