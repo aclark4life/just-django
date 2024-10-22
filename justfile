@@ -53,7 +53,7 @@ django-clean:
 # django-dumpdata
 [group('django')]
 django-dumpdata:
-	python manage.py dumpdata | python -m json.tool
+    python manage.py dumpdata | python -m json.tool
 
 # django-init
 [group('django')]
