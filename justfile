@@ -1,13 +1,13 @@
 # list all available recipes
-default: list
+default: just-list
 
 alias c := django-clean
 alias d := django-init
-alias e := edit
-alias l := list
+alias e := just-edit
+alias l := just-list
 alias m := django-migrate
 alias n := npm-init
-alias o := open
+alias o := django-open
 alias s := django-serve
 alias su := django-su
 alias ce := git-commit-edit-push
@@ -93,6 +93,11 @@ django-migrations:
 django-migrate:
     python manage.py migrate
 
+# open django
+[group('django')]
+django-open:
+    open http://0.0.0.0:8000
+
 # django-serve
 [group('django')]
 django-serve:
@@ -136,18 +141,13 @@ git-commit-edit-push:
 
 # list all available recipes
 [group('just')]
-list:
-    @just -l
+just-list:
+    @just -l | less
 
 # edit the justfile
 [group('just')]
-edit:
+just-edit:
     @just -e
-
-# open django
-[group('misc')]
-open:
-    open http://0.0.0.0:8000
 
 [group('npm')]
 npm-build:
