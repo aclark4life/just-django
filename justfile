@@ -34,6 +34,16 @@ startproject_template := "https://github.com/aclark4life/just-django-project/arc
 asv-run:
     pushd .venv/src/django-asv && asv run && popd
 
+# asv-preview
+[group('asv')]
+asv-preview:
+    pushd .venv/src/django-asv && asv preview && popd
+
+# asv-publish
+[group('asv')]
+asv-publish:
+    pushd .venv/src/django-asv && asv publish && popd
+
 # ---------------------------------------- django ---------------------------------------- 
 
 # django-dbshell
