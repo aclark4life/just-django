@@ -42,7 +42,6 @@ django-clean:
     .babelrc \
     .eslintrc \
     .stylelintrc.json \
-    .venv/src \
     backend \
     frontend \
     manage.py \
@@ -52,7 +51,8 @@ django-clean:
     package-lock.json \
     polls \
     postcss.config.js \
-    requirements.txt
+    requirements.txt \
+    src
 
 alias clean := django-clean
 alias c := django-clean
