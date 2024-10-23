@@ -2,7 +2,7 @@
 default: just-list
 
 startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
-startproject_template := "https://github.com/mongodb-labs/just-django-project/archive/refs/heads/main.zip"
+startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
 # ---------------------------------------- asv ---------------------------------------- 
 
