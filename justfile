@@ -175,6 +175,12 @@ git-commit-edit-push:
 
 alias ce := git-commit-edit-push
 
+# ---------------------------------------- jira ----------------------------------------
+
+[group('jira')]
+PYTHON-4856:
+    python manage.py shell -c "from polls.models import Question; q = Question(); q.save(); Question.objects.raw_mql('db.polls_question.find()')"
+
 # ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
@@ -220,7 +226,3 @@ check-venv:
     	echo "Please activate virtual environment"; \
     	exit 1; \
     fi
-
-[group('jira')]
-PYTHON-4856:
-    python manage.py shell -c "from polls.models import Question; q = Question(); q.save(); Question.objects.raw_mql('db.polls_question.find()')"
