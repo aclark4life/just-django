@@ -92,7 +92,8 @@ django-install:
 # django-su
 [group('django')]
 django-su:
-    DJANGO_SUPERUSER_PASSWORD=admin python manage.py createsuperuser --noinput --username=admin --email=`git config user.mail`
+    DJANGO_SUPERUSER_PASSWORD=admin python manage.py createsuperuser --noinput \
+        --username=admin --email=`git config user.mail`
 
 alias su := django-su
 
