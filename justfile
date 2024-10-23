@@ -4,7 +4,7 @@ default: just-list
 startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
 startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
 
-# ---------------------------------------- asv ---------------------------------------- 
+# ---------------------------------------- asv ----------------------------------------
 
 # asv-clean
 [group('asv')]
@@ -26,7 +26,7 @@ asv-publish:
 asv-run:
     pushd .venv/src/django-asv && asv run && popd
 
-# ---------------------------------------- django ---------------------------------------- 
+# ---------------------------------------- django ----------------------------------------
 
 # django-dbshell
 [group('django')]
@@ -152,7 +152,7 @@ alias sqlmigrate := django-sqlmigrate
 django-project:
     django-admin startproject backend . --template "{{ startproject_template }}"
 
-# ---------------------------------------- git ---------------------------------------- 
+# ---------------------------------------- git ----------------------------------------
 
 [group('git')]
 git-commit-last:
@@ -175,7 +175,7 @@ git-commit-edit-push:
 
 alias ce := git-commit-edit-push
 
-# ---------------------------------------- just ---------------------------------------- 
+# ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
 [group('just')]
@@ -191,7 +191,7 @@ just-edit:
 
 alias e := just-edit
 
-# ---------------------------------------- npm ---------------------------------------- 
+# ---------------------------------------- npm ----------------------------------------
 
 [group('npm')]
 npm-build:
@@ -206,7 +206,7 @@ alias n := npm-init
 npm-install:
     npm install
 
-# ---------------------------------------- python ---------------------------------------- 
+# ---------------------------------------- python ----------------------------------------
 
 [group('python')]
 pip-freeze:
