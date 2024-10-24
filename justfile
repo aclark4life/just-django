@@ -181,7 +181,7 @@ alias ce := git-commit-edit-push
 [group('jira')]
 INTPYTHON-348:
     python manage.py shell -c "from polls.models import Question; q = Question(); q.save(); \
-        Question.objects.raw_mql('db.polls_question.find()')"
+        Question.objects.raw_mql('{}')"
 
 # ---------------------------------------- just ----------------------------------------
 
