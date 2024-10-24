@@ -76,7 +76,7 @@ alias d := django-init
 django-install:
     export PIP_SRC=./src ; pip install \
     -e git+https://github.com/aclark4life/django-asv#egg=django-asv \
-    -e git+https://github.com/aclark4life/django-mongodb@PYTHON-4856#egg=django-mongodb \
+    -e git+https://github.com/aclark4life/django-mongodb@INTPYTHON-348#egg=django-mongodb \
     -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
     -e git+https://github.com/mongodb-forks/django@mongodb-5.0.x#egg=django \
     asv \
