@@ -80,7 +80,7 @@ django-install:
     -e git+https://github.com/aclark4life/django-asv#egg=django-asv \
     -e git+https://github.com/aclark4life/django-mongodb@INTPYTHON-348#egg=django-mongodb \
     -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
-    -e git+https://github.com/aclark4life/django#egg=django \
+    -e git+https://github.com/aclark4life/django@mongodb-5.0.x#egg=django \
     asv \
     crispy-bootstrap5 \
     dj-database-url \
