@@ -91,6 +91,16 @@ django-install:
     django-recaptcha \
     djangorestframework
 
+# django-test
+[group('django')]
+django-test:
+    CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
+    LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
+    pip install -r src/django/tests/requirements/py3.txt
+
+alias test := django-test
+alias t := django-test
+
 # django-su
 [group('django')]
 django-su:
