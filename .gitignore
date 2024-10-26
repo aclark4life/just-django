@@ -1,1 +1,10 @@
+.eslintrc
+.stylelintrc.json
+backend/
+frontend/
+manage.py
+mongo_migrations/
+package.json
+polls/
+postcss.config.js
 src/
