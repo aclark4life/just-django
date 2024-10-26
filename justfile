@@ -153,7 +153,7 @@ alias ce := git-commit-edit-push
 # ---------------------------------------- jira ----------------------------------------
 
 [group('jira')]
-INTPYTHON-348:
+INTPYTHON-348: check-venv
     python manage.py shell -c "from polls.models import Question; q = Question(); q.save(); \
         qs = Question.objects.raw_mql('{}'); [i for i in qs]"
 
