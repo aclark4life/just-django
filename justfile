@@ -16,19 +16,25 @@ alias dbshell := django-dbshell
 # django-clean
 [group('django')]
 django-clean:
-    rm -rvf \
-    .babelrc \
-    .eslintrc \
-    .stylelintrc.json \
-    backend \
-    frontend \
-    manage.py \
-    mongo_migrations \
-    node_modules \
-    package.json \
-    package-lock.json \
-    polls \
-    postcss.config.js
+    #!/bin/bash
+
+    # Check if .gitignore exists
+    if [ ! -f .gitignore ]; then
+      echo ".gitignore file not found!"
+      exit 1
+    fi
+
+    # Read each line in .gitignore and remove the corresponding files/directories
+    while IFS= read -r entry; do
+      # Skip empty lines and comments
+      if [[ -z "$entry" || "$entry" == \#* ]]; then
+        continue
+      fi
+
+      # Remove the entry
+      echo "Removing $entry"
+      rm -rvf "$entry"
+    done < .gitignore
 
 alias clean := django-clean
 alias c := django-clean
