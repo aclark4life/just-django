@@ -45,7 +45,7 @@ alias m := django-migrate
 
 # django-serve
 [group('django')]
-django-serve:
+django-serve: check-venv
     npm run watch &
     python manage.py runserver
 
@@ -207,7 +207,11 @@ alias freeze := pip-freeze
 
 [group('python')]
 check-venv:
-    @if [ -z "${VIRTUAL_ENV:-}" ]; then \
-    	echo "Please activate virtual environment"; \
-    	exit 1; \
+    #!/bin/bash
+    PYTHON_PATH=$(which python)
+    if [[ $PYTHON_PATH == *".venv/bin/python" ]]; then
+      echo "Virtual environment is active."
+    else
+      echo "Virtual environment is not active."
+      exit 1
     fi
