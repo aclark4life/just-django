@@ -28,9 +28,7 @@ django-clean:
     package.json \
     package-lock.json \
     polls \
-    postcss.config.js \
-    requirements.txt \
-    src
+    postcss.config.js
 
 alias clean := django-clean
 alias c := django-clean
@@ -52,26 +50,14 @@ alias d := django-init
 # django-install
 [group('django')]
 django-install:
-    export PIP_SRC=./src ; pip install \
-    -e git+https://github.com/aclark4life/django-mongodb@INTPYTHON-348#egg=django-mongodb \
-    -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
-    -e git+https://github.com/aclark4life/django@mongodb-5.0.x#egg=django \
-    asv \
-    crispy-bootstrap5 \
-    dj-database-url \
-    django-crispy-forms \
-    django-debug-toolbar \
-    django-extensions \
-    django-hijack \
-    django-recaptcha \
-    djangorestframework
+    export PIP_SRC=. && pip install -r requirements.txt
 
 # django-test
 [group('django')]
 django-test:
     CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
     LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
-    pip install -r src/django/tests/requirements/py3.txt
+    pip install -r django/tests/requirements/py3.txt
 
 alias test := django-test
 alias t := django-test
