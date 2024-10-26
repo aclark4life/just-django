@@ -20,13 +20,6 @@ django-dumpdata:
 
 alias dump := django-dumpdata
 
-# django-init
-[group('django')]
-django-init: check-venv django-install django-project
-
-alias django := django-init
-alias d := django-init
-
 # django-su
 [group('django')]
 django-su:
@@ -104,6 +97,13 @@ django-clean:
 
 alias clean := django-clean
 alias c := django-clean
+
+# django-init
+[group('django')]
+django-init: check-venv django-install django-project
+
+alias django := django-init
+alias d := django-init
 
 # django-install
 [group('django-utils')]
