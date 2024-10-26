@@ -2,6 +2,7 @@
 .stylelintrc.json
 backend/
 frontend/
+home/
 manage.py
 mongo_migrations/
 node_modules/
