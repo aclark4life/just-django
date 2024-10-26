@@ -13,25 +13,6 @@ django-dbshell:
 
 alias dbshell := django-dbshell
 
-# django-clean
-[group('django')]
-django-clean:
-    #!/bin/bash
-    if [ ! -f .gitignore ]; then
-      echo ".gitignore file not found!"
-      exit 1
-    fi
-    while IFS= read -r entry; do
-      if [[ -z "$entry" || "$entry" == \#* ]]; then
-        continue
-      fi
-      echo "Removing $entry"
-      rm -rvf "$entry"
-    done < .gitignore
-
-alias clean := django-clean
-alias c := django-clean
-
 # django-dumpdata
 [group('django')]
 django-dumpdata:
@@ -45,21 +26,6 @@ django-init: check-venv django-install django-project
 
 alias django := django-init
 alias d := django-init
-
-# django-install
-[group('django')]
-django-install:
-    export PIP_SRC=src && pip install -r requirements.txt
-
-# django-test
-[group('django')]
-django-test:
-    CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
-    LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
-    pip install -r django/tests/requirements/py3.txt
-
-alias test := django-test
-alias t := django-test
 
 # django-su
 [group('django')]
@@ -83,13 +49,6 @@ django-migrate:
 
 alias migrate := django-migrate
 alias m := django-migrate
-
-# open django
-[group('django')]
-django-open:
-    open http://0.0.0.0:8000
-
-alias o := django-open
 
 # django-serve
 [group('django')]
@@ -124,6 +83,49 @@ alias sqlmigrate := django-sqlmigrate
 [group('django')]
 django-project:
     django-admin startproject backend . --template "{{ startproject_template }}"
+
+# ---------------------------------------- django-utils -------------------------------
+
+# django-clean
+[group('django-utils')]
+django-clean:
+    #!/bin/bash
+    if [ ! -f .gitignore ]; then
+      echo ".gitignore file not found!"
+      exit 1
+    fi
+    while IFS= read -r entry; do
+      if [[ -z "$entry" || "$entry" == \#* ]]; then
+        continue
+      fi
+      echo "Removing $entry"
+      rm -rvf "$entry"
+    done < .gitignore
+
+alias clean := django-clean
+alias c := django-clean
+
+# django-install
+[group('django-utils')]
+django-install:
+    export PIP_SRC=src && pip install -r requirements.txt
+
+# open django
+[group('django-utils')]
+django-open:
+    open http://0.0.0.0:8000
+
+alias o := django-open
+
+# django-test
+[group('django-utils')]
+django-test:
+    CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
+    LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
+    pip install -r django/tests/requirements/py3.txt
+
+alias test := django-test
+alias t := django-test
 
 # ---------------------------------------- git ----------------------------------------
 
