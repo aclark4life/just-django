@@ -3,6 +3,7 @@ default: just-list
 
 # ---------------------------------------- django ----------------------------------------
 
+django_clean_skip := "django django-mongodb pymongo"
 startapp_template := "./startapp_template"
 startproject_template := "./startproject_template"
 
@@ -17,21 +18,14 @@ alias dbshell := django-dbshell
 [group('django')]
 django-clean:
     #!/bin/bash
-
-    # Check if .gitignore exists
     if [ ! -f .gitignore ]; then
       echo ".gitignore file not found!"
       exit 1
     fi
-
-    # Read each line in .gitignore and remove the corresponding files/directories
     while IFS= read -r entry; do
-      # Skip empty lines and comments
       if [[ -z "$entry" || "$entry" == \#* ]]; then
         continue
       fi
-
-      # Remove the entry
       echo "Removing $entry"
       rm -rvf "$entry"
     done < .gitignore
@@ -207,3 +201,16 @@ check-venv:
     	echo "Please activate virtual environment"; \
     	exit 1; \
     fi
+
+# Recipe to demonstrate converting the skip list to an array and printing it
+demo_skip_list:
+    #!/bin/bash
+
+    # Convert django_clean_skip to an array
+    IFS=' ' read -r -a skip_array <<< "{{django_clean_skip}}"
+
+    # Print each entry in the skip array
+    echo "Entries to skip:"
+    for skip in "${skip_array[@]}"; do
+        echo "$skip"
+    done

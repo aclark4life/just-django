@@ -2,6 +2,8 @@
 .eslintrc
 .stylelintrc.json
 backend/
+django/
+django-mongodb/
 frontend/
 manage.py
 mongo_migrations/
@@ -10,5 +12,6 @@ package-lock.json
 package.json
 polls/
 postcss.config.js
+pymongo/
 server.log
 server.pid
