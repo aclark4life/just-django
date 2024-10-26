@@ -1,34 +1,10 @@
 # list all available recipes
 default: just-list
 
-startapp_template := "https://github.com/aclark4life/django-mongodb-app/archive/refs/heads/main.zip"
-# startproject_template := "https://github.com/aclark4life/just-django-project/archive/refs/heads/main.zip"
-startproject_template := "~/Developer/just-django-project"
-
-
-# ---------------------------------------- asv ----------------------------------------
-
-# asv-clean
-[group('asv')]
-asv-clean:
-    pushd .venv/src/django-asv && rm -rvf ./results && popd
-
-# asv-preview
-[group('asv')]
-asv-preview:
-    pushd .venv/src/django-asv && asv preview && popd
-
-# asv-publish
-[group('asv')]
-asv-publish:
-    pushd .venv/src/django-asv && asv publish && popd
-
-# asv-run
-[group('asv')]
-asv-run:
-    pushd .venv/src/django-asv && asv run && popd
-
 # ---------------------------------------- django ----------------------------------------
+
+startapp_template := "./startapp_template"
+startproject_template := "./startproject_template"
 
 # django-dbshell
 [group('django')]
@@ -77,7 +53,6 @@ alias d := django-init
 [group('django')]
 django-install:
     export PIP_SRC=./src ; pip install \
-    -e git+https://github.com/aclark4life/django-asv#egg=django-asv \
     -e git+https://github.com/aclark4life/django-mongodb@INTPYTHON-348#egg=django-mongodb \
     -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo \
     -e git+https://github.com/aclark4life/django@mongodb-5.0.x#egg=django \
