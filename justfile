@@ -49,7 +49,7 @@ alias d := django-init
 # django-install
 [group('django')]
 django-install:
-    export PIP_SRC=. && pip install -r requirements.txt
+    export PIP_SRC=src && pip install -r requirements.txt
 
 # django-test
 [group('django')]
