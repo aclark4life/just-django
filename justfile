@@ -188,13 +188,14 @@ npm-build:
     npm run build
 
 [group('npm')]
-npm-init: npm-install npm-build
-
-alias n := npm-init
-
-[group('npm')]
 npm-install:
     npm install
+
+[group('npm')]
+npm: npm-install npm-build
+
+alias n := npm
+alias pack := npm
 
 # ---------------------------------------- python ----------------------------------------
 
