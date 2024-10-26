@@ -4,7 +4,9 @@ backend/
 frontend/
 manage.py
 mongo_migrations/
+node_modules/
 package.json
+package-lock.json
 polls/
 postcss.config.js
 src/
