@@ -57,6 +57,7 @@ django-shell:
     python manage.py shell
 
 alias shell := django-shell
+alias sh := django-shell
 
 # django-startapp
 [group('django')]
