@@ -131,6 +131,12 @@ alias t := django-test
 # ---------------------------------------- git ----------------------------------------
 
 [group('git')]
+git-checkout:
+    git checkout .
+
+alias co := git-checkout
+
+[group('git')]
 git-commit-last:
     git log -1 --pretty=%B | git commit -a -F -
     git push
