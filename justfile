@@ -122,7 +122,7 @@ alias o := django-open
 django-test:
     CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
     LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
-    pip install -r django/tests/requirements/py3.txt
+    pip install -r src/django/tests/requirements/py3.txt
 
 alias test := django-test
 alias t := django-test
