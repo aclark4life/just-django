@@ -123,6 +123,7 @@ django-test:
     CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
     LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
     pip install -r src/django/tests/requirements/py3.txt
+    python src/django/tests/runtests.py --settings django.mongodb_settings --parallel 1 raw_query -k repr
 
 alias test := django-test
 alias t := django-test
