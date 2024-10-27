@@ -197,14 +197,17 @@ alias ml := mongo-launch
 
 # ---------------------------------------- npm ----------------------------------------
 
+# npm run build
 [group('npm')]
 npm-build:
     npm run build
 
+# npm install
 [group('npm')]
 npm-install:
     npm install
 
+# npm-install and npm-build
 [group('npm')]
 npm-init: npm-install npm-build
 
@@ -213,6 +216,7 @@ alias pack := npm-init
 
 # ---------------------------------------- python ----------------------------------------
 
+# save requirements to requirements.txt
 [group('python')]
 pip-freeze:
     pip freeze > requirements.txt
