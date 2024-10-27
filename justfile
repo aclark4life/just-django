@@ -119,11 +119,11 @@ alias o := django-open
 
 # django-test
 [group('django-utils')]
-django-test:
+django-test filter:
     CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
     LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
     pip install -r src/django/tests/requirements/py3.txt
-    python src/django/tests/runtests.py --settings django.mongodb_settings --parallel 1 raw_query
+    python src/django/tests/runtests.py --settings django.mongodb_settings --parallel 1 raw_query -k {{ filter }}
 
 alias test := django-test
 alias t := django-test
@@ -160,13 +160,6 @@ git-commit-edit-push:
     git push
 
 alias ce := git-commit-edit-push
-
-# ---------------------------------------- jira ----------------------------------------
-
-[group('jira')]
-INTPYTHON-348: check-venv
-    python manage.py shell -c "from polls.models import Question; q = Question(); q.save(); \
-        qs = Question.objects.raw_mql('{}'); [i for i in qs]"
 
 # ---------------------------------------- just ----------------------------------------
 
