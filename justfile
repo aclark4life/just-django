@@ -130,12 +130,14 @@ alias t := django-test
 
 # ---------------------------------------- git ----------------------------------------
 
+# git checkout .
 [group('git')]
 git-checkout:
     git checkout .
 
 alias co := git-checkout
 
+# git commit with last commit message
 [group('git')]
 git-commit-last:
     git log -1 --pretty=%B | git commit -a -F -
@@ -143,6 +145,7 @@ git-commit-last:
 
 alias last := git-commit-last
 
+# git commit and push
 [group('git')]
 git-commit-push:
     git commit -a -m "Add/update just-django recipes."
@@ -150,6 +153,7 @@ git-commit-push:
 
 alias cp := git-commit-push
 
+# git commit, edit commit message, and push
 [group('git')]
 git-commit-edit-push:
     git commit -a
