@@ -119,7 +119,7 @@ alias o := django-open
 
 # django-test
 [group('django-utils')]
-django-test:
+django-test: check-venv
     CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
     LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
     pip install -r src/django/tests/requirements/py3.txt
