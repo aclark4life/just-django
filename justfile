@@ -100,7 +100,7 @@ alias c := django-clean
 
 # django-init
 [group('django')]
-django-init: check-venv django-install django-project
+django-init: check-venv django-install django-project npm-init
 
 alias django := django-init
 alias d := django-init
@@ -192,10 +192,10 @@ npm-install:
     npm install
 
 [group('npm')]
-npm: npm-install npm-build
+npm-init: npm-install npm-build
 
-alias n := npm
-alias pack := npm
+alias n := npm-init
+alias pack := npm-init
 
 # ---------------------------------------- python ----------------------------------------
 
