@@ -161,6 +161,13 @@ git-commit-edit-push:
 
 alias ce := git-commit-edit-push
 
+# git log
+[group('git')]
+git-log:
+    git log --oneline
+
+alias log := git-log
+
 # ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
