@@ -117,17 +117,6 @@ django-open:
 
 alias o := django-open
 
-# django-test
-[group('django-utils')]
-django-test: check-venv
-    CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
-    LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
-    pip install -r src/django/tests/requirements/py3.txt
-    python src/django/tests/runtests.py --settings django.mongodb_settings --parallel 1 raw_query
-
-alias test := django-test
-alias t := django-test
-
 # ---------------------------------------- git ----------------------------------------
 
 # git checkout .
@@ -167,6 +156,15 @@ git-log:
     git log --oneline
 
 alias log := git-log
+
+# ---------------------------------------- jira ----------------------------------------
+
+[group('jira')]
+INTPYTHON-348: check-venv
+    CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
+    LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
+    pip install -r src/django/tests/requirements/py3.txt
+    python src/django/tests/runtests.py --settings django.mongodb_settings --parallel 1 raw_query
 
 # ---------------------------------------- just ----------------------------------------
 
