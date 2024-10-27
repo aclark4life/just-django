@@ -169,7 +169,7 @@ INTPYTHON-348: check-venv
 # list all available recipes
 [group('just')]
 just-list:
-    @just -l | less
+    @just -l
 
 alias l := just-list
 
@@ -219,6 +219,7 @@ pip-freeze:
 
 alias freeze := pip-freeze
 
+# ensure virtual environment is active
 [group('python')]
 check-venv:
     #!/bin/bash
