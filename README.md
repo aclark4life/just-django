@@ -1,3 +1,3 @@
 # Just Django
 
-"A task runner for all seasons" —Alex
+> "A task runner for all seasons" —Alex
