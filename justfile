@@ -184,13 +184,6 @@ just-edit:
 
 alias e := just-edit
 
-# edit the readme
-[group('just')]
-just-edit-readme:
-    nvim README.md
-
-alias er := just-edit-readme
-
 # ---------------------------------------- mongodb-------------------------------------
 
 [group('mongodb')]
