@@ -53,7 +53,7 @@ alias s := django-serve
 
 # django-shell
 [group('django')]
-django-shell:
+django-shell: check-venv
     python manage.py shell
 
 alias shell := django-shell
