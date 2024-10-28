@@ -158,18 +158,6 @@ git-log:
 
 alias log := git-log
 
-# ---------------------------------------- jira ----------------------------------------
-
-[group('jira')]
-INTPYTHON-348: check-venv
-    CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
-    LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
-    pip install -r src/django/tests/requirements/py3.txt
-    cp src/django-mongodb/.github/workflows/mongodb_settings.py src/django/tests
-    python src/django/tests/runtests.py --settings mongodb_settings --parallel 1 raw_query -k test_raw_query
-
-alias t := INTPYTHON-348
-
 # ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
@@ -233,3 +221,15 @@ check-venv:
       echo "Virtual environment is not active."
       exit 1
     fi
+
+# ---------------------------------------- jira ----------------------------------------
+
+[group('jira')]
+INTPYTHON-348: check-venv
+    CFLAGS="-I/opt/homebrew/Cellar/libmemcached/1.0.18_2/include" \
+    LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
+    pip install -r src/django/tests/requirements/py3.txt
+    cp src/django-mongodb/.github/workflows/mongodb_settings.py src/django/tests
+    python src/django/tests/runtests.py --settings mongodb_settings --parallel 1 raw_query -k test_raw_query
+
+alias t := INTPYTHON-348
