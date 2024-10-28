@@ -37,7 +37,7 @@ alias migrations := django-migrations
 
 # django-migrate
 [group('django')]
-django-migrate:
+django-migrate: check-venv
     python manage.py migrate
 
 alias migrate := django-migrate
