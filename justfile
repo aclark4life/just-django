@@ -168,6 +168,8 @@ INTPYTHON-348: check-venv
     cp src/django-mongodb/.github/workflows/mongodb_settings.py src/django/tests
     python src/django/tests/runtests.py --settings mongodb_settings --parallel 1 raw_query
 
+alias t := INTPYTHON-348
+
 # ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
