@@ -39,7 +39,7 @@ alias su := django-su
 
 # django-migrations
 [group('django')]
-django-migrations:
+django-migrations: check-venv
     python manage.py makemigrations
 
 alias migrations := django-migrations
