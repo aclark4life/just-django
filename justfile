@@ -12,6 +12,7 @@ django-dbshell:
     python manage.py dbshell
 
 alias dbshell := django-dbshell
+alias dbsh := django-dbshell
 
 # django-dumpdata
 [group('django')]
