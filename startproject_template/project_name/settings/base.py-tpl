@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "home",
     "polls",
     "webpack_boilerplate",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [

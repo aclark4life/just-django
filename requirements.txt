@@ -4,3 +4,4 @@
 django-debug-toolbar
 factory-boy
 python-webpack-boilerplate
+django-extensions
