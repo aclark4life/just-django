@@ -64,6 +64,7 @@ alias s := django-serve
 [group('django')]
 django-serve-pg: check-venv
     npm run watch &
+    python manage.py migrate --settings backend.settings.pg
     python manage.py runserver --settings backend.settings.pg
 
 alias pg := django-serve-pg
