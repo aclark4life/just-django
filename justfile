@@ -109,7 +109,37 @@ alias urls := django-urls
 [group('django-utils')]
 django-clean:
     #!/usr/bin/env python
-    import this
+    import os
+    gitignore_path = ".gitignore"
+    if not os.path.exists(gitignore_path):
+        print(f"{gitignore_path} file not found!")
+        exit(1)
+
+    with open(gitignore_path, "r") as f:
+        for line in f:
+            # Strip whitespace and ignore empty lines or comments
+            path = line.strip()
+            if not path or path.startswith("#"):
+                continue
+
+            # Remove leading slash if it exists
+            path = path.lstrip("/")
+
+            # Skip if the path does not exist
+            if not os.path.exists(path):
+                print(f"{path} does not exist, skipping.")
+                continue
+
+            # Remove file or directory
+            try:
+                if os.path.isfile(path) or os.path.islink(path):
+                    os.remove(path)
+                    print(f"Removed file: {path}")
+                elif os.path.isdir(path):
+                    shutil.rmtree(path)
+                    print(f"Removed directory: {path}")
+            except Exception as e:
+                print(f"Error removing {path}: {e}")
 
 alias clean := django-clean
 alias c := django-clean
