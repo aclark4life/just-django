@@ -1,0 +1,14 @@
+from .dev import *  # noqa
+
+import dj_database_url
+
+DATABASE_URL = os.environ.get("DATABASE_URL", "postgres://:@:/{{ project_name }}")
+DATABASES["default"] = dj_database_url.parse(DATABASE_URL)
+
+INSTALLED_APPS.remove("backend.apps.MongoAdminConfig")
+INSTALLED_APPS.remove("backend.apps.MongoAuthConfig")
+INSTALLED_APPS.remove("backend.apps.MongoContentTypesConfig")
+
+INSTALLED_APPS.append("django.contrib.admin")
+INSTALLED_APPS.append("django.contrib.auth")
+INSTALLED_APPS.append("django.contrib.contenttypes")
