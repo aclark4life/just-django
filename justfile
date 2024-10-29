@@ -222,6 +222,7 @@ alias freeze := pip-freeze
 # install requirements from requirements.txt
 [group('python')]
 pip-install:
+    pip install -U pip
     export PIP_SRC=src && pip install -r requirements.txt
 
 alias install := pip-install
