@@ -105,8 +105,17 @@ alias urls := django-urls
 
 # ---------------------------------------- django-utils -------------------------------
 
+# django-clean
+[group('django-utils')]
+django-clean:
+    #!/usr/bin/env python
+    import this
+
+alias clean := django-clean
+alias c := django-clean
+
 # django-init
-[group('django')]
+[group('django-utils')]
 django-init: check-venv django-install django-project npm-init
 
 alias django := django-init
