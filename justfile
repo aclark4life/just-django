@@ -83,7 +83,7 @@ django-project:
 
 # django-urls
 [group('django-extensions')]
-django-urls:
+django-urls: check-venv
     python manage.py show_urls
 
 alias urls := django-urls
