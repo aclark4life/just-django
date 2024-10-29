@@ -1,7 +1,8 @@
 -e git+https://github.com/aclark4life/django-mongodb@INTPYTHON-348#egg=django-mongodb
 -e git+https://github.com/aclark4life/django@mongodb-5.0.x#egg=django
 -e git+https://github.com/aclark4life/mongo-python-driver#egg=pymongo
+dj-database-url
 django-debug-toolbar
+django-extensions
 factory-boy
 python-webpack-boilerplate
-django-extensions
