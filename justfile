@@ -125,14 +125,14 @@ django-clean:
             # Remove leading slash if it exists
             path = path.lstrip("/")
 
-            # Skip if the path does not exist
-            if not os.path.exists(path):
-                print(f"{path} does not exist, skipping.")
-                continue
-
             # Skip paths that start with '!'
             if path.startswith("!"):
                 print(f"Ignoring path: {path[1:].strip()}")
+                continue
+
+            # Skip if the path does not exist
+            if not os.path.exists(path):
+                print(f"{path} does not exist, skipping.")
                 continue
 
             # Remove file or directory
