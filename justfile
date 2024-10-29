@@ -6,6 +6,14 @@ default: just-list
 startapp_template := "./startapp_template"
 startproject_template := "./startproject_template"
 
+# django-admin
+[group('django')]
+django-admin:
+    python manage.py
+
+alias admin := django-admin
+alias a := django-admin
+
 # django-dbshell
 [group('django')]
 django-dbshell:
@@ -78,6 +86,13 @@ alias sqlmigrate := django-sqlmigrate
 [group('django')]
 django-project:
     django-admin startproject backend . --template "{{ startproject_template }}"
+
+# django-admin-subcommand
+[group('django')]
+django-admin-subcommand subcommand: check-venv
+    python manage.py {{ subcommand }}
+
+alias sub := django-admin-subcommand
 
 # ---------------------------------------- django-extensions -------------------------------
 
