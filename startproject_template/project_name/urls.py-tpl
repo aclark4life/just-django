@@ -10,7 +10,6 @@ urlpatterns = []
 
 if settings.DEBUG:
     urlpatterns += [path("__debug__/", include("debug_toolbar.urls"))]
-endef
 
 urlpatterns += [
     path('django/', admin.site.urls),
