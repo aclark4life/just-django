@@ -79,6 +79,15 @@ alias sqlmigrate := django-sqlmigrate
 django-project:
     django-admin startproject backend . --template "{{ startproject_template }}"
 
+# ---------------------------------------- django-extensions -------------------------------
+
+# django-urls
+[group('django-extensions')]
+django-urls:
+    python manage.py show_urls
+
+alias urls := django-urls
+
 # ---------------------------------------- django-utils -------------------------------
 
 # django-clean
