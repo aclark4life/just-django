@@ -105,25 +105,6 @@ alias urls := django-urls
 
 # ---------------------------------------- django-utils -------------------------------
 
-# django-clean
-[group('django-utils')]
-django-clean:
-    #!/bin/bash
-    if [ ! -f .gitignore ]; then
-      echo ".gitignore file not found!"
-      exit 1
-    fi
-    while IFS= read -r entry; do
-      if [[ -z "$entry" || "$entry" == \#* ]]; then
-        continue
-      fi
-      echo "Removing $entry"
-      rm -rvf "$entry"
-    done < .gitignore
-
-alias clean := django-clean
-alias c := django-clean
-
 # django-init
 [group('django')]
 django-init: check-venv django-install django-project npm-init
