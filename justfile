@@ -60,6 +60,14 @@ django-serve: check-venv
 
 alias s := django-serve
 
+# django-serve-pg
+[group('django')]
+django-serve-pg: check-venv
+    npm run watch &
+    python manage.py runserver --settings backend.settings.pg
+
+alias pg := django-serve-pg
+
 # django-shell
 [group('django')]
 django-shell: check-venv
