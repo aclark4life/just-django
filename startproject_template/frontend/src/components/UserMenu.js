@@ -3,12 +3,12 @@ import React from 'react'; // eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 
 function handleLogout() {  // eslint-disable-line no-unused-vars
-    window.location.href = '/accounts/logout';
+    window.location.href = '/django/logout';
 }
 
 const UserMenu = ({ isAuthenticated, isSuperuser, textColor }) => {  // eslint-disable-line no-unused-vars
   return (
-    <div> 
+    <div>
       {isAuthenticated ? (
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
@@ -27,12 +27,12 @@ const UserMenu = ({ isAuthenticated, isSuperuser, textColor }) => {  // eslint-d
               </>
             ) : null}
             <li><hr className="dropdown-divider"></hr></li>
-            <li><a className="dropdown-item" href="/accounts/logout">Logout</a></li>
+            <li><a className="dropdown-item" href="/django/logout">Logout</a></li>
           </ul>
         </li>
       ) : (
         <li className="nav-item">
-          <a className="nav-link dropdown-toggle" type="button" aria-expanded="false" href="/accounts/login/"></a>
+          <a className="nav-link dropdown-toggle" type="button" aria-expanded="false" href="/django/login/"></a>
         </li>
       )}
     </div>
