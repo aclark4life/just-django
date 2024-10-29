@@ -16,11 +16,11 @@ const { ErrorBoundary } = components; // eslint-disable-line
 const dataComponents = getDataComponents(components);
 const container = document.getElementById('app');
 const root = createRoot(container);
-const App = () => (
+const App = () => ( // eslint-disable-line
     <ErrorBoundary>
       <UserContextProvider>
         {dataComponents}
       </UserContextProvider>
     </ErrorBoundary>
-); // eslint-disable-line
+);
 root.render(<App />);

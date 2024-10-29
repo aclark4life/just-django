@@ -1,12 +1,12 @@
 // UserMenu.js
-import React from 'react';
+import React from 'react'; // eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 
-function handleLogout() {
+function handleLogout() {  // eslint-disable-line no-unused-vars
     window.location.href = '/accounts/logout';
 }
 
-const UserMenu = ({ isAuthenticated, isSuperuser, textColor }) => {
+const UserMenu = ({ isAuthenticated, isSuperuser, textColor }) => {  // eslint-disable-line no-unused-vars
   return (
     <div> 
       {isAuthenticated ? (
