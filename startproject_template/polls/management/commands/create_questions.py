@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from home.factories import create_questions_with_choices
+from polls.factories import create_questions_with_choices
 
 
 class Command(BaseCommand):
