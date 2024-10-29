@@ -6,7 +6,7 @@ class QuestionFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Question
 
-    text = factory.Faker("sentence")
+    question_text = factory.Faker("sentence")
 
 
 class ChoiceFactory(factory.django.DjangoModelFactory):
@@ -14,7 +14,7 @@ class ChoiceFactory(factory.django.DjangoModelFactory):
         model = Choice
 
     question = factory.SubFactory(QuestionFactory)
-    text = factory.Faker("word")
+    choice_text = factory.Faker("word")
     votes = factory.Faker("random_int", min=0, max=100)
 
 
