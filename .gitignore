@@ -1,0 +1,14 @@
+!*/home
+.eslintrc
+.stylelintrc.json
+backend/
+frontend/
+home/
+manage.py
+mongo_migrations/
+node_modules/
+package-lock.json
+package.json
+polls/
+postcss.config.js
+src/

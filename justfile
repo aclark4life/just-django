@@ -109,7 +109,7 @@ alias urls := django-urls
 [group('django-utils')]
 django-clean:
     #!/usr/bin/env python
-    import os
+    import os, shutil
     gitignore_path = ".gitignore"
     if not os.path.exists(gitignore_path):
         print(f"{gitignore_path} file not found!")
@@ -128,6 +128,11 @@ django-clean:
             # Skip if the path does not exist
             if not os.path.exists(path):
                 print(f"{path} does not exist, skipping.")
+                continue
+
+            # Skip paths that start with '!'
+            if path.startswith("!"):
+                print(f"Ignoring path: {path[1:].strip()}")
                 continue
 
             # Remove file or directory
