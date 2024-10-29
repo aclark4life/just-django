@@ -118,8 +118,7 @@ alias d := django-init
 
 # django-install
 [group('django-utils')]
-django-install: check-venv
-    export PIP_SRC=src && pip install -r requirements.txt
+django-install: check-venv pip-install
 
 # open django
 [group('django-utils')]
@@ -223,7 +222,7 @@ alias freeze := pip-freeze
 # install requirements from requirements.txt
 [group('python')]
 pip-install:
-    pip install -r requirements.txt
+    export PIP_SRC=src && pip install -r requirements.txt
 
 alias install := pip-install
 alias i := pip-install
