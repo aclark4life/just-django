@@ -5,4 +5,5 @@ dj-database-url
 django-debug-toolbar
 django-extensions
 factory-boy
+psycopg2
 python-webpack-boilerplate
