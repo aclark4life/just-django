@@ -8,6 +8,6 @@
     }
     template IN SRV {
         match ^_mongodb._tcp.localhost.$
-        answer "{{.Name}} 60 IN SRV 0 1 27017 mongodb1.localhost."
+        answer "{{.Name}} 60 IN SRV 0 1 27017 localhost."
     }
 }
