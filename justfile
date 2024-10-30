@@ -300,6 +300,22 @@ INTPYTHON-348: check-venv
 [group('jira')]
 PYTHON-4575: check-venv
     #!/usr/bin/env python 
-    import this
+    import dns.resolver
+    from pymongo import MongoClient
+
+    # Configure dnspython to use the custom DNS server on port 5353
+    resolver = dns.resolver.Resolver()
+    resolver.nameservers = ['127.0.0.1']
+    resolver.port = 5353
+
+    # Set the custom resolver as the default resolver
+    dns.resolver.default_resolver = resolver
+
+    # Use pymongo to connect to the MongoDB instance using the SRV record
+    client = MongoClient('mongodb+srv://_mongodb._tcp.local')
+
+    # Test the connection
+    db = client.test
+    print(db.list_collection_names())
 
 alias t := INTPYTHON-348
