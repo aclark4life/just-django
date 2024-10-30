@@ -31,7 +31,7 @@ alias dump := django-dumpdata
 
 # django-su
 [group('django')]
-django-su:
+django-su: check-venv
     DJANGO_SUPERUSER_PASSWORD=admin python manage.py createsuperuser --noinput \
         --username=admin --email=`git config user.mail`
 
