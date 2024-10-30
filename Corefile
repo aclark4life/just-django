@@ -2,10 +2,10 @@
     log
     errors
     hosts {
-        127.0.0.1 mongodb.local
+        127.0.0.1 localhost
         fallthrough
     }
     template IN SRV _mongodb._tcp.local {
-        answer "{{.Name}} 60 IN SRV 0 5 27017 mongodb.local."
+        answer "{{.Name}} 60 IN SRV 0 5 27017 localhost."
     }
 }
