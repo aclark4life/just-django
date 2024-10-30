@@ -151,7 +151,7 @@ alias c := django-clean
 
 # django-init
 [group('django-utils')]
-django-init: check-venv django-install django-project npm-init
+django-init: check-venv django-install django-project npm-init django-su
 
 alias django := django-init
 alias d := django-init
