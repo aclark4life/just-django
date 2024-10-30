@@ -299,7 +299,7 @@ INTPYTHON-348: check-venv
 
 [group('jira')]
 PYTHON-4575: check-venv
-    #!/usr/bin/env python 
+    #!/usr/bin/env python
     import dns.resolver
     from pymongo import MongoClient
 
@@ -312,7 +312,7 @@ PYTHON-4575: check-venv
     dns.resolver.default_resolver = resolver
 
     # Use pymongo to connect to the MongoDB instance using the SRV record
-    client = MongoClient('mongodb+srv://localhost')
+    client = MongoClient('mongodb+srv://localhost?tls=false')
 
     # Test the connection
     db = client.test
