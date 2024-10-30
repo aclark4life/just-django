@@ -3,9 +3,11 @@
     errors
     hosts {
         127.0.0.1 localhost
+        127.0.0.1 mongodb1.localhost  # Dummy subdomain for MongoDB SRV
         fallthrough
     }
-    template IN SRV _mongodb._tcp.local {
-        answer "{{.Name}} 60 IN SRV 0 5 27017 localhost."
+    template IN SRV {
+        match ^_mongodb._tcp.localhost.$
+        answer "{{.Name}} 60 IN SRV 0 1 27017 mongodb1.localhost."
     }
 }
