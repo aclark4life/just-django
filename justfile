@@ -306,7 +306,7 @@ PYTHON-4575: check-venv
     # Configure dnspython to use the custom DNS server on port 5353
     resolver = dns.resolver.Resolver()
     resolver.nameservers = ['127.0.0.1']
-    resolver.port = 5353
+    resolver.port = 1053
 
     # Set the custom resolver as the default resolver
     dns.resolver.default_resolver = resolver
