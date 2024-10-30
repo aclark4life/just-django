@@ -167,6 +167,13 @@ django-open:
 
 alias o := django-open
 
+# ---------------------------------------- dns ----------------------------------------
+
+# test dns
+[group('dns')]
+dns:
+    coredns -conf Corefile
+
 # ---------------------------------------- git ----------------------------------------
 
 # git checkout .
@@ -289,5 +296,10 @@ INTPYTHON-348: check-venv
     pip install -r src/django/tests/requirements/py3.txt
     cp src/django-mongodb/.github/workflows/mongodb_settings.py src/django/tests
     python src/django/tests/runtests.py --settings mongodb_settings --parallel 1 raw_query -k test_raw_query
+
+[group('jira')]
+PYTHON-4575: check-venv
+    #!/usr/bin/env python 
+    import this
 
 alias t := INTPYTHON-348
