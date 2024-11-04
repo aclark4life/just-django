@@ -2,6 +2,7 @@
 .eslintrc
 .stylelintrc.json
 backend/
+db.sqlite3
 frontend/
 home/
 manage.py
@@ -11,4 +12,5 @@ package-lock.json
 package.json
 postcss.config.js
 server.log
+server.pid
 src/
