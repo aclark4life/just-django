@@ -295,7 +295,7 @@ INTPYTHON-348: check-venv
     LDFLAGS="-L/opt/homebrew/Cellar/libmemcached/1.0.18_2/lib" pip install pylibmc
     pip install -r src/django/tests/requirements/py3.txt
     cp src/django-mongodb/.github/workflows/mongodb_settings.py src/django/tests
-    python src/django/tests/runtests.py --settings mongodb_settings --parallel 1 raw_query -k test_raw_query
+    python src/django/tests/runtests.py --settings mongodb_settings --parallel 1 raw_query
 
 [group('jira')]
 PYTHON-4575: check-venv
