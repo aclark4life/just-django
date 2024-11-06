@@ -317,5 +317,3 @@ PYTHON-4575: check-venv
     # Test the connection
     db = client.test
     print(db.list_collection_names())
-
-alias t := INTPYTHON-348
