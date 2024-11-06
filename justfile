@@ -302,18 +302,10 @@ PYTHON-4575: check-venv
     #!/usr/bin/env python
     import dns.resolver
     from pymongo import MongoClient
-
-    # Configure dnspython to use the custom DNS server on port 1053
     resolver = dns.resolver.Resolver()
     resolver.nameservers = ['127.0.0.1']
     resolver.port = 1053
-
-    # Set the custom resolver as the default resolver
     dns.resolver.default_resolver = resolver
-
-    # Use pymongo to connect to the MongoDB instance using the SRV record
     client = MongoClient('mongodb+srv://localhost?tls=false')
-
-    # Test the connection
     db = client.test
     print(db.list_collection_names())
