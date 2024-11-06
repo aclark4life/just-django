@@ -1,7 +1,5 @@
 # Just Django
 
-> "A task runner for all seasons" —Alex
-
 ## Reference
 
 - https://www.mongodb.com/resources/products/compatibilities/mongodb-and-django
