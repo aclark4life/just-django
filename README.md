@@ -1,4 +1,4 @@
-# Just Django
+# Development of MongoDB Backend for Django
 
 ## Reference
 
