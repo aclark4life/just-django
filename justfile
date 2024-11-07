@@ -179,9 +179,11 @@ dns:
 # git checkout .
 [group('git')]
 git-checkout:
-    git checkout .
+    pushd src/django && git checkout . && popd
+    pushd src/django-mongodb && git checkout . && popd
+    pushd src/pymongo && git checkout . && popd
 
-alias co := git-checkout
+alias gco := git-checkout
 
 # git commit with last commit message
 [group('git')]
