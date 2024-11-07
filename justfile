@@ -214,6 +214,16 @@ git-log:
 
 alias log := git-log
 
+# git pull
+[group('git')]
+git-pull:
+    #!/bin/bash
+    pushd src/django && git pull && popd
+    pushd src/django-mongodb && git pull && popd
+    pushd src/pymongo && git pull && popd
+
+alias gp := git-pull
+
 # ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
