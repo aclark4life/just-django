@@ -226,6 +226,13 @@ git-pull:
 
 alias gp := git-pull
 
+# git remote
+[group('git')]
+git-remote:
+    pushd src/django-mongodb && git remote add upstream git@github.com:mongodb-labs/django-mongodb.git && popd 
+
+alias ra := git-remote
+
 # ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
