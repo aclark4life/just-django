@@ -233,6 +233,13 @@ git-remote:
 
 alias ra := git-remote
 
+# git fetch
+[group('git')]
+git-fetch:
+    pushd src/django-mongodb && git fetch upstream && popd 
+
+alias gf := git-fetch
+
 # ---------------------------------------- just ----------------------------------------
 
 # list all available recipes
