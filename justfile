@@ -256,14 +256,6 @@ just-edit:
 
 alias e := just-edit
 
-# ---------------------------------------- mongodb-------------------------------------
-
-[group('mongodb')]
-mongo-launch:
-    mongo-launch single
-
-alias ml := mongo-launch
-
 # ---------------------------------------- npm ----------------------------------------
 
 # npm run build
