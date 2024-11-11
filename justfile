@@ -237,6 +237,7 @@ alias ra := git-remote
 [group('git')]
 git-fetch:
     pushd src/django-mongodb && git fetch upstream && popd 
+    pushd src/django && git fetch upstream && popd 
 
 alias gf := git-fetch
 
